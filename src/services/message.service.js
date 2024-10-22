@@ -19,10 +19,66 @@ const getPublicResource = async () => {
   };
 };
 
-const getProtectedResource = async (accessToken) => {
+const getProtectedResource = async (accessToken, url) => {
   const config = {
-    url: `${apiServerUrl}/api/messages/protected`,
+    url: url || `${apiServerUrl}/api/messages/protected`,
     method: "GET",
+    headers: {
+      "content-type": "application/json",
+      Authorization: `Bearer ${accessToken}`,
+    },
+  };
+
+  const { data, error } = await callExternalApi(config);
+
+  return {
+    data: data || null,
+    error,
+  };
+};
+
+const postProtectedResource = async (accessToken, url, body) => {
+  const config = {
+    url: url || `${apiServerUrl}/api/messages/protected`,
+    method: "POST",
+    headers: {
+      "content-type": "application/json",
+      Authorization: `Bearer ${accessToken}`,
+    },
+    body: JSON.stringify(body)
+  };
+
+  const { data, error } = await callExternalApi(config);
+
+  return {
+    data: data || null,
+    error,
+  };
+};
+
+const putProtectedResource = async (accessToken, url, body) => {
+  const config = {
+    url: url || `${apiServerUrl}/api/messages/protected`,
+    method: "PUT",
+    headers: {
+      "content-type": "application/json",
+      Authorization: `Bearer ${accessToken}`,
+    },
+    body: JSON.stringify(body)
+  };
+
+  const { data, error } = await callExternalApi(config);
+
+  return {
+    data: data || null,
+    error,
+  };
+};
+
+const deleteProtectedResource = async (accessToken, url) => {
+  const config = {
+    url: url || `${apiServerUrl}/api/messages/protected`,
+    method: "DELETE",
     headers: {
       "content-type": "application/json",
       Authorization: `Bearer ${accessToken}`,
@@ -59,4 +115,7 @@ export {
   getPublicResource,
   getProtectedResource,
   getAdminResource,
+  postProtectedResource,
+  putProtectedResource,
+  deleteProtectedResource
 };
