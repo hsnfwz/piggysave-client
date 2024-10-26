@@ -603,15 +603,17 @@ function DashboardPage() {
         setTransaction(undefined);
       }
 
-      setTransactions(_transactions);
-      setTransaction(undefined);
-
       const body = document.querySelector('body');
       if (body) {
         body.style.overflow = 'auto';
       }
 
       setShowAddEditTransactionModal(false);
+      setTransactions(_transactions);
+      setTransaction(undefined);
+      setName('');
+      setAmount(1);
+      setType('INCOME');
     } catch (error) {
       console.log(error);
     }
@@ -640,9 +642,6 @@ function DashboardPage() {
         setTransactions([]);
       }
 
-      setTransactions(_transactions);
-      setTransaction(undefined);
-
       if (transaction.type === 'EXPENSE') {
         await refreshChartDataExpense();
       } else if (transaction.type === 'INCOME') {
@@ -655,6 +654,8 @@ function DashboardPage() {
       }
 
       setShowDeleteTransactionModal(false);
+      setTransactions(_transactions);
+      setTransaction(undefined);
     } catch (error) {
       console.log(error);
     }

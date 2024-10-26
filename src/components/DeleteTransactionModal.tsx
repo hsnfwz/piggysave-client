@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+// import { useEffect, useState } from 'react';
 
 function DeleteTransactionModal({
   transaction,
@@ -11,11 +11,11 @@ function DeleteTransactionModal({
   }
 
   if (showDeleteTransactionModal) {
-    const [viewTransaction, setViewTransaction] = useState(undefined);
+    // const [viewTransaction, setViewTransaction] = useState(undefined);
 
-    useEffect(() => {
-      setViewTransaction(transaction);
-    }, transaction);
+    // useEffect(() => {
+    //   setViewTransaction(transaction);
+    // }, transaction);
 
     return (
       <div className="relative top-0 left-0 z-50">
@@ -29,7 +29,7 @@ function DeleteTransactionModal({
               <button
                 type="button"
                 className="px-4 py-2 bg-sky-700 text-white rounded hover:bg-sky-800"
-                onClick={async () => await handleDeleteTransaction(viewTransaction)}
+                onClick={async () => await handleDeleteTransaction(transaction)}
               >
                 Submit
               </button>

@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+// import { useEffect, useState } from 'react';
 
 function AddEditTransactionModal({
   transaction,
@@ -17,20 +17,20 @@ function AddEditTransactionModal({
   }
 
   if (showAddEditTransactionModal) {
-    const [viewTransaction, setViewTransaction] = useState(undefined);
+    // const [viewTransaction, setViewTransaction] = useState(undefined);
 
-    useEffect(() => {
-      setViewTransaction(transaction);
-    }, transaction);
+    // useEffect(() => {
+    //   setViewTransaction(transaction);
+    // }, transaction);
 
     return (
       <div className="relative top-0 left-0 z-50">
         <div className="fixed top-0 left-0 w-full h-screen bg-slate-800/75 backdrop-blur flex flex-col gap-4 p-4">
           <div className="flex flex-col gap-8 max-w-screen-lg mx-auto w-full grow justify-center">
-            {viewTransaction && (
+            {transaction && (
               <h1 className="text-2xl font-bold">Edit Transaction</h1>
             )}
-            {!viewTransaction && (
+            {!transaction && (
               <h1 className="text-2xl font-bold">Add Transaction</h1>
             )}
             <div className="flex flex-col gap-4">
@@ -86,7 +86,7 @@ function AddEditTransactionModal({
                 type="button"
                 className="px-4 py-2 bg-sky-700 text-white rounded disabled:opacity-50 disabled:pointer-events-none hover:bg-sky-800"
                 onClick={async () =>
-                  await handleAddEditTransaction(viewTransaction)
+                  await handleAddEditTransaction(transaction)
                 }
                 disabled={name === '' || type === '' || amount <= 0}
               >
