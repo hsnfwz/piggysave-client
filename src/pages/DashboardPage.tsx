@@ -119,31 +119,31 @@ function DashboardPage() {
       ] = await Promise.all([
         getProtectedResource(
           accessToken,
-          'https://www.piggysave-server.onrender.com/api/transactions'
+          'https://piggysave-server.onrender.com/api/transactions'
         ),
         getProtectedResource(
           accessToken,
-          'https://www.piggysave-server.onrender.com/api/transactions/total-amount-per-year/EXPENSE'
+          'https://piggysave-server.onrender.com/api/transactions/total-amount-per-year/EXPENSE'
         ),
         getProtectedResource(
           accessToken,
-          `https://www.piggysave-server.onrender.com/api/transactions/total-amount-per-month/${yearExpense}/EXPENSE`
+          `https://piggysave-server.onrender.com/api/transactions/total-amount-per-month/${yearExpense}/EXPENSE`
         ),
         getProtectedResource(
           accessToken,
-          `https://www.piggysave-server.onrender.com/api/transactions/total-amount-per-day/${yearYearMonthExpense}/${monthYearMonthExpense}/EXPENSE`
+          `https://piggysave-server.onrender.com/api/transactions/total-amount-per-day/${yearYearMonthExpense}/${monthYearMonthExpense}/EXPENSE`
         ),
         getProtectedResource(
           accessToken,
-          'https://www.piggysave-server.onrender.com/api/transactions/total-amount-per-year/INCOME'
+          'https://piggysave-server.onrender.com/api/transactions/total-amount-per-year/INCOME'
         ),
         getProtectedResource(
           accessToken,
-          `https://www.piggysave-server.onrender.com/api/transactions/total-amount-per-month/${yearIncome}/INCOME`
+          `https://piggysave-server.onrender.com/api/transactions/total-amount-per-month/${yearIncome}/INCOME`
         ),
         getProtectedResource(
           accessToken,
-          `https://www.piggysave-server.onrender.com/api/transactions/total-amount-per-day/${yearYearMonthIncome}/${monthYearMonthIncome}/INCOME`
+          `https://piggysave-server.onrender.com/api/transactions/total-amount-per-day/${yearYearMonthIncome}/${monthYearMonthIncome}/INCOME`
         ),
       ]);
 
@@ -294,15 +294,15 @@ function DashboardPage() {
     ] = await Promise.all([
       getProtectedResource(
         accessToken,
-        'https://www.piggysave-server.onrender.com/api/transactions/total-amount-per-year/EXPENSE'
+        'https://piggysave-server.onrender.com/api/transactions/total-amount-per-year/EXPENSE'
       ),
       getProtectedResource(
         accessToken,
-        `https://www.piggysave-server.onrender.com/api/transactions/total-amount-per-month/${yearExpense}/EXPENSE`
+        `https://piggysave-server.onrender.com/api/transactions/total-amount-per-month/${yearExpense}/EXPENSE`
       ),
       getProtectedResource(
         accessToken,
-        `https://www.piggysave-server.onrender.com/api/transactions/total-amount-per-day/${yearYearMonthExpense}/${monthYearMonthExpense}/EXPENSE`
+        `https://piggysave-server.onrender.com/api/transactions/total-amount-per-day/${yearYearMonthExpense}/${monthYearMonthExpense}/EXPENSE`
       ),
     ]);
 
@@ -376,15 +376,15 @@ function DashboardPage() {
     ] = await Promise.all([
       getProtectedResource(
         accessToken,
-        'https://www.piggysave-server.onrender.com/api/transactions/total-amount-per-year/INCOME'
+        'https://piggysave-server.onrender.com/api/transactions/total-amount-per-year/INCOME'
       ),
       getProtectedResource(
         accessToken,
-        `https://www.piggysave-server.onrender.com/api/transactions/total-amount-per-month/${yearIncome}/INCOME`
+        `https://piggysave-server.onrender.com/api/transactions/total-amount-per-month/${yearIncome}/INCOME`
       ),
       getProtectedResource(
         accessToken,
-        `https://www.piggysave-server.onrender.com/api/transactions/total-amount-per-day/${yearYearMonthIncome}/${monthYearMonthIncome}/INCOME`
+        `https://piggysave-server.onrender.com/api/transactions/total-amount-per-day/${yearYearMonthIncome}/${monthYearMonthIncome}/INCOME`
       ),
     ]);
 
@@ -446,7 +446,7 @@ function DashboardPage() {
     const _transactionsByTotalAmountPerMonthExpense =
       await getProtectedResource(
         accessToken,
-        `https://www.piggysave-server.onrender.com/api/transactions/total-amount-per-month/${yearExpense}/EXPENSE`
+        `https://piggysave-server.onrender.com/api/transactions/total-amount-per-month/${yearExpense}/EXPENSE`
       );
 
     if (_transactionsByTotalAmountPerMonthExpense.data) {
@@ -473,7 +473,7 @@ function DashboardPage() {
     const accessToken = await getAccessTokenSilently();
     const _transactionsByTotalAmountPerDayExpense = await getProtectedResource(
       accessToken,
-      `https://www.piggysave-server.onrender.com/api/transactions/total-amount-per-day/${yearYearMonthExpense}/${monthYearMonthExpense}/EXPENSE`
+      `https://piggysave-server.onrender.com/api/transactions/total-amount-per-day/${yearYearMonthExpense}/${monthYearMonthExpense}/EXPENSE`
     );
 
     if (_transactionsByTotalAmountPerDayExpense.data) {
@@ -497,7 +497,7 @@ function DashboardPage() {
     const accessToken = await getAccessTokenSilently();
     const _transactionsByTotalAmountPerMonthIncome = await getProtectedResource(
       accessToken,
-      `https://www.piggysave-server.onrender.com/api/transactions/total-amount-per-month/${yearIncome}/INCOME`
+      `https://piggysave-server.onrender.com/api/transactions/total-amount-per-month/${yearIncome}/INCOME`
     );
 
     if (_transactionsByTotalAmountPerMonthIncome.data) {
@@ -524,7 +524,7 @@ function DashboardPage() {
     const accessToken = await getAccessTokenSilently();
     const _transactionsByTotalAmountPerDayIncome = await getProtectedResource(
       accessToken,
-      `https://www.piggysave-server.onrender.com/api/transactions/total-amount-per-day/${yearYearMonthIncome}/${monthYearMonthIncome}/INCOME`
+      `https://piggysave-server.onrender.com/api/transactions/total-amount-per-day/${yearYearMonthIncome}/${monthYearMonthIncome}/INCOME`
     );
 
     if (_transactionsByTotalAmountPerDayIncome.data) {
@@ -555,7 +555,7 @@ function DashboardPage() {
       if (transaction) {
         result = await putProtectedResource(
           accessToken,
-          `https://www.piggysave-server.onrender.com/api/transactions/${transaction.transaction_id}`,
+          `https://piggysave-server.onrender.com/api/transactions/${transaction.transaction_id}`,
           {
             name,
             type,
@@ -579,7 +579,7 @@ function DashboardPage() {
       } else {
         result = await postProtectedResource(
           accessToken,
-          'https://www.piggysave-server.onrender.com/api/transactions',
+          'https://piggysave-server.onrender.com/api/transactions',
           {
             name,
             type,
@@ -624,7 +624,7 @@ function DashboardPage() {
       const accessToken = await getAccessTokenSilently();
       const result = await deleteProtectedResource(
         accessToken,
-        `https://www.piggysave-server.onrender.com/api/transactions/${transaction.transaction_id}`
+        `https://piggysave-server.onrender.com/api/transactions/${transaction.transaction_id}`
       );
 
       const _transactions = [...transactions];
