@@ -600,6 +600,7 @@ function DashboardPage() {
 
       if (result.error) {
         setTransactions([]);
+        setTransaction(undefined);
       }
 
       setTransactions(_transactions);
