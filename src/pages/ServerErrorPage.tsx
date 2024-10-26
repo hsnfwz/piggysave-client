@@ -1,11 +1,11 @@
 import logoSvg from '../assets/logo.svg';
-import pageNotFoundSvg from '../assets/page_not_found.svg';
+import serverErrorPageSvg from '../assets/server_down.svg';
 
-function NotFoundPage() {
+function ServerErrorPage() {
   return (
     <div className="w-full h-screen flex flex-col gap-8 items-center justify-center">
       <img
-        src={pageNotFoundSvg}
+        src={serverErrorPageSvg}
         alt="not-found"
         className="object-contain w-full h-[400px]"
       />
@@ -20,4 +20,4 @@ function NotFoundPage() {
   );
 }
 
-export default NotFoundPage;
+export default ServerErrorPage;

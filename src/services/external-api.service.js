@@ -17,6 +17,4 @@ const callExternalApi = async (options) => {
   }
 };
 
-export {
-  callExternalApi
-};
+export { callExternalApi };

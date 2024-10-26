@@ -19,6 +19,6 @@ function CallbackPage() {
       <h1 className="text-2xl font-bold">Success</h1>
     </PageLayout>
   );
-};
+}
 
 export default CallbackPage;

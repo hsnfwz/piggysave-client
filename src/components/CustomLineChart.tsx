@@ -6,17 +6,28 @@ import {
   Tooltip,
   // Legend,
   Line,
-  ResponsiveContainer
+  ResponsiveContainer,
 } from 'recharts';
 
+import { useEffect, useState } from 'react';
+
+import { getChartYMax } from '../services/helpers';
+
 function CustomLineChart({ data, syncId, lineColor }) {
-  const yMax = data.length > 0 && data.reduce((a, b) => Math.max(a.amount, b.amount)) || 'auto';
+  const [yMax, setYMax] = useState('auto');
+
+  useEffect(() => {
+    if (data.length > 0) {
+      let max = getChartYMax(data);
+      setYMax(max);
+    }
+  }, [data]);
 
   // function renderLegend(props) {
   //   const { payload } = props;
-  
+
   //   // console.log(payload)
-    
+
   //   return (
   //     <ul className="flex justify-center items-center gap-4 p-2">
   //       {payload.map((entry, index) => (
@@ -36,15 +47,15 @@ function CustomLineChart({ data, syncId, lineColor }) {
 
     if (active && payload && payload.length) {
       return (
-        <div className="border-2 border-slate-700 bg-slate-800 rounded text-white p-2">
+        <div className="border border-slate-700 bg-slate-800 rounded text-white p-2">
           <p>{label}</p>
-          <p className="text-sky-700">{payload[0].value}</p>
+          <p style={{ color: lineColor }}>{payload[0].value}</p>
         </div>
       );
     }
-  
+
     return null;
-  };
+  }
 
   return (
     <ResponsiveContainer width="100%" height={400}>
@@ -60,28 +71,28 @@ function CustomLineChart({ data, syncId, lineColor }) {
           top: 0,
           left: 0,
           bottom: 0,
-          right: 0
+          right: 0,
         }}
         syncId={syncId}
       >
         <CartesianGrid
           strokeDasharray="3 3"
-          stroke="#1e293b"
-          fill="#1e293b"
+          stroke={lineColor}
+          fill={lineColor}
           fillOpacity="0.25"
         />
         <XAxis
           dataKey="time"
           stroke="white"
-          axisLine={{ stroke: '#1e293b' }}
+          axisLine={{ stroke: lineColor }}
           // label={{ value: 'Month', position: 'bottom', offset: 0, fill: 'white' }}
         />
         <YAxis
           stroke="white"
-          axisLine={{ stroke: '#1e293b' }}
-          allowDataOverflow
+          axisLine={{ stroke: lineColor }}
           type="number"
           domain={[0, yMax]}
+          // allowDataOverflow={false}
           // label={{ value: 'Amount', angle: -90, position: 'left', offset: 0, fill: 'white' }}
         />
         {/* <Legend
@@ -89,15 +100,15 @@ function CustomLineChart({ data, syncId, lineColor }) {
           align="center"
           content={renderLegend}
         /> */}
-        <Tooltip
-          cursor={false}
-          content={renderTooltip}
-        />
+        <Tooltip cursor={false} content={renderTooltip} />
         <Line
           dataKey="amount"
-          fill="#1e293b"
+          fill={lineColor}
           // label={{ fill: 'white', fontSize: 12 }}
-          activeDot={{ stroke: 'white', strokeWidth: 2, fill: lineColor }}
+          activeDot={{ stroke: 'white', strokeWidth: 1 }}
+          dot={{ stroke: lineColor, strokeWidth: 1 }}
+          stroke={lineColor}
+          strokeWidth={1}
           // barSize={20}
           // background={{ fill: 'yellow' }}
         />

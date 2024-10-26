@@ -6,17 +6,28 @@ import {
   Tooltip,
   // Legend,
   Bar,
-  ResponsiveContainer
+  ResponsiveContainer,
 } from 'recharts';
 
+import { useEffect, useState } from 'react';
+
+import { getChartYMax } from '../services/helpers';
+
 function CustomBarChart({ data, syncId, barColor }) {
-  const yMax = data.length > 0 && data.reduce((a, b) => Math.max(a.amount, b.amount)) || 'auto';
+  const [yMax, setYMax] = useState('auto');
+
+  useEffect(() => {
+    if (data.length > 0) {
+      let max = getChartYMax(data);
+      setYMax(max);
+    }
+  }, [data]);
 
   // function renderLegend(props) {
   //   const { payload } = props;
-  
+
   //   // console.log(payload)
-    
+
   //   return (
   //     <ul className="flex justify-center items-center gap-4 p-2">
   //       {payload.map((entry, index) => (
@@ -36,15 +47,15 @@ function CustomBarChart({ data, syncId, barColor }) {
 
     if (active && payload && payload.length) {
       return (
-        <div className="border-2 border-slate-700 bg-slate-800 rounded text-white p-2">
+        <div className="border border-slate-700 bg-slate-800 rounded text-white p-2">
           <p>{label}</p>
-          <p className="text-sky-700">{payload[0].value}</p>
+          <p style={{ color: barColor }}>{payload[0].value}</p>
         </div>
       );
     }
-  
+
     return null;
-  };
+  }
 
   return (
     <ResponsiveContainer width="100%" height={400}>
@@ -60,27 +71,28 @@ function CustomBarChart({ data, syncId, barColor }) {
           top: 0,
           left: 0,
           bottom: 0,
-          right: 0
+          right: 0,
         }}
         syncId={syncId}
       >
         <CartesianGrid
           strokeDasharray="3 3"
-          stroke="#1e293b"
-          fill="#1e293b"
+          stroke={barColor}
+          fill={barColor}
           fillOpacity="0.25"
         />
         <XAxis
           dataKey="time"
           stroke="white"
-          axisLine={{ stroke: '#1e293b' }}
+          axisLine={{ stroke: barColor }}
           // label={{ value: 'Month', position: 'bottom', offset: 0, fill: 'white' }}
         />
         <YAxis
           stroke="white"
-          axisLine={{ stroke: '#1e293b' }}
+          axisLine={{ stroke: barColor }}
           type="number"
           domain={[0, yMax]}
+          // allowDataOverflow={false}
           // label={{ value: 'Amount', angle: -90, position: 'left', offset: 0, fill: 'white' }}
         />
         {/* <Legend
@@ -88,16 +100,13 @@ function CustomBarChart({ data, syncId, barColor }) {
           align="center"
           content={renderLegend}
         /> */}
-        <Tooltip
-          cursor={false}
-          content={renderTooltip}
-        />
+        <Tooltip cursor={false} content={renderTooltip} />
         <Bar
           dataKey="amount"
-          fill="#1e293b"
+          fill={barColor}
           // label={{ fill: 'white', fontSize: 12 }}
-          activeBar={{ stroke: 'white', strokeWidth: 2, fill: barColor }}
-          radius={[4,4,0,0]}
+          activeBar={{ stroke: 'white', strokeWidth: 1 }}
+          // radius={[4, 4, 0, 0]}
           // barSize={20}
           // background={{ fill: 'yellow' }}
         />

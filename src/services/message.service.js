@@ -5,9 +5,9 @@ const apiServerUrl = import.meta.env.VITE_API_SERVER_URL;
 const getPublicResource = async () => {
   const config = {
     url: `${apiServerUrl}/api/messages/public`,
-    method: "GET",
+    method: 'GET',
     headers: {
-      "content-type": "application/json",
+      'content-type': 'application/json',
     },
   };
 
@@ -22,9 +22,9 @@ const getPublicResource = async () => {
 const getProtectedResource = async (accessToken, url) => {
   const config = {
     url: url || `${apiServerUrl}/api/messages/protected`,
-    method: "GET",
+    method: 'GET',
     headers: {
-      "content-type": "application/json",
+      'content-type': 'application/json',
       Authorization: `Bearer ${accessToken}`,
     },
   };
@@ -40,12 +40,12 @@ const getProtectedResource = async (accessToken, url) => {
 const postProtectedResource = async (accessToken, url, body) => {
   const config = {
     url: url || `${apiServerUrl}/api/messages/protected`,
-    method: "POST",
+    method: 'POST',
     headers: {
-      "content-type": "application/json",
+      'content-type': 'application/json',
       Authorization: `Bearer ${accessToken}`,
     },
-    body: JSON.stringify(body)
+    body: JSON.stringify(body),
   };
 
   const { data, error } = await callExternalApi(config);
@@ -59,12 +59,12 @@ const postProtectedResource = async (accessToken, url, body) => {
 const putProtectedResource = async (accessToken, url, body) => {
   const config = {
     url: url || `${apiServerUrl}/api/messages/protected`,
-    method: "PUT",
+    method: 'PUT',
     headers: {
-      "content-type": "application/json",
+      'content-type': 'application/json',
       Authorization: `Bearer ${accessToken}`,
     },
-    body: JSON.stringify(body)
+    body: JSON.stringify(body),
   };
 
   const { data, error } = await callExternalApi(config);
@@ -78,9 +78,9 @@ const putProtectedResource = async (accessToken, url, body) => {
 const deleteProtectedResource = async (accessToken, url) => {
   const config = {
     url: url || `${apiServerUrl}/api/messages/protected`,
-    method: "DELETE",
+    method: 'DELETE',
     headers: {
-      "content-type": "application/json",
+      'content-type': 'application/json',
       Authorization: `Bearer ${accessToken}`,
     },
   };
@@ -96,9 +96,9 @@ const deleteProtectedResource = async (accessToken, url) => {
 const getAdminResource = async (accessToken) => {
   const config = {
     url: `${apiServerUrl}/api/messages/admin`,
-    method: "GET",
+    method: 'GET',
     headers: {
-      "content-type": "application/json",
+      'content-type': 'application/json',
       Authorization: `Bearer ${accessToken}`,
     },
   };
@@ -117,5 +117,5 @@ export {
   getAdminResource,
   postProtectedResource,
   putProtectedResource,
-  deleteProtectedResource
+  deleteProtectedResource,
 };

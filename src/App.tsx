@@ -9,18 +9,27 @@ import PageLoader from './components/PageLoader';
 import HomePage from './pages/HomePage';
 import DashboardPage from './pages/DashboardPage';
 import ProfilePage from './pages/ProfilePage';
-// import AdminPage from './pages/AdminPage';
 import NotFoundPage from './pages/NotFoundPage';
+import ServerErrorPage from './pages/ServerErrorPage';
 import CallbackPage from './pages/CallbackPage';
 
 function App() {
   const { isLoading } = useAuth0();
 
   if (isLoading) {
-    return (
-      <PageLoader />
-    );
+    return <PageLoader />;
   }
+
+  {/* TODO: create profile in neon on sign up */}
+  {/* TODO: delete profile in auth0 and neon on delete account */}
+
+
+      {/* TODO: table totals + filters */}
+      {/* TODO: limit table transactions displayed at once + load more button  */}
+      {/* TODO: prevent tab focus behind modal - look into "focus trap" */}
+      {/* TODO: exit modal with escape key */}
+      {/* TODO: only call refresh chart data for edits that changed their amounts and their types (not for name changes) */}
+      {/* TODO: only refresh chart data by filters when filters are different than before */}
 
   return (
     <Routes>
@@ -33,14 +42,11 @@ function App() {
         path="/profile"
         element={<AuthenticationGuard component={ProfilePage} />}
       />
-      {/* <Route
-        path="/admin"
-        element={<AuthenticationGuard component={AdminPage} />}
-      /> */}
       <Route path="/callback" element={<CallbackPage />} />
+      <Route path="/server-error" element={<ServerErrorPage />} />
       <Route path="*" element={<NotFoundPage />} />
     </Routes>
   );
-};
+}
 
 export default App;

@@ -5,13 +5,11 @@ import PageLoader from './PageLoader';
 function AuthenticationGuard({ component }) {
   const Component = withAuthenticationRequired(component, {
     onRedirecting: () => {
-      return (
-        <PageLoader />
-      );
-    }
+      return <PageLoader />;
+    },
   });
 
   return <Component />;
-};
+}
 
 export default AuthenticationGuard;
