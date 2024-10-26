@@ -604,6 +604,11 @@ function DashboardPage() {
 
       setTransactions(_transactions);
 
+      const body = document.querySelector('body');
+      if (body) {
+        body.style.overflow = 'auto';
+      }
+
       setShowAddEditTransactionModal(false);
     } catch (error) {
       console.log(error);
@@ -638,6 +643,11 @@ function DashboardPage() {
         await refreshChartDataExpense();
       } else if (transaction.type === 'INCOME') {
         await refreshChartDataIncome();
+      }
+
+      const body = document.querySelector('body');
+      if (body) {
+        body.style.overflow = 'auto';
       }
 
       setShowDeleteTransactionModal(false);
