@@ -603,6 +603,7 @@ function DashboardPage() {
       }
 
       setTransactions(_transactions);
+      setTransaction(undefined);
 
       const body = document.querySelector('body');
       if (body) {
@@ -634,10 +635,12 @@ function DashboardPage() {
       }
 
       if (result.error) {
+        setTransaction(undefined);
         setTransactions([]);
       }
 
       setTransactions(_transactions);
+      setTransaction(undefined);
 
       if (transaction.type === 'EXPENSE') {
         await refreshChartDataExpense();
