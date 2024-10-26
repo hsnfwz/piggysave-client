@@ -20,16 +20,13 @@ function App() {
     return <PageLoader />;
   }
 
-  {/* TODO: create profile in neon on sign up */}
   {/* TODO: delete profile in auth0 and neon on delete account */}
-
-
-      {/* TODO: table totals + filters */}
-      {/* TODO: limit table transactions displayed at once + load more button  */}
-      {/* TODO: prevent tab focus behind modal - look into "focus trap" */}
-      {/* TODO: exit modal with escape key */}
-      {/* TODO: only call refresh chart data for edits that changed their amounts and their types (not for name changes) */}
-      {/* TODO: only refresh chart data by filters when filters are different than before */}
+  {/* TODO: table totals + filters */}
+  {/* TODO: limit table transactions displayed at once + load more button  */}
+  {/* TODO: prevent tab focus behind modal - look into "focus trap" */}
+  {/* TODO: exit modal with escape key */}
+  {/* TODO: only call refresh chart data for edits that changed their amounts and their types (not for name changes) */}
+  {/* TODO: only refresh chart data by filters when filters are different than before */}
 
   return (
     <Routes>
