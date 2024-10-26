@@ -9,7 +9,7 @@ function AddEditTransactionModal({
   handleAddEditTransaction,
   handleCancel,
   showAddEditTransactionModal,
-}) {
+}: any) {
   if (!showAddEditTransactionModal) {
     return <></>;
   }

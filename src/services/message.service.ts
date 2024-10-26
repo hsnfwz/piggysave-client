@@ -19,7 +19,7 @@ const getPublicResource = async () => {
   };
 };
 
-const getProtectedResource = async (accessToken, url) => {
+const getProtectedResource = async (accessToken:any, url:any) => {
   const config = {
     url: url || `${apiServerUrl}/api/messages/protected`,
     method: 'GET',
@@ -37,7 +37,7 @@ const getProtectedResource = async (accessToken, url) => {
   };
 };
 
-const postProtectedResource = async (accessToken, url, body) => {
+const postProtectedResource = async (accessToken:any, url:any, body:any) => {
   const config = {
     url: url || `${apiServerUrl}/api/messages/protected`,
     method: 'POST',
@@ -56,7 +56,7 @@ const postProtectedResource = async (accessToken, url, body) => {
   };
 };
 
-const putProtectedResource = async (accessToken, url, body) => {
+const putProtectedResource = async (accessToken:any, url:any, body:any) => {
   const config = {
     url: url || `${apiServerUrl}/api/messages/protected`,
     method: 'PUT',
@@ -75,7 +75,7 @@ const putProtectedResource = async (accessToken, url, body) => {
   };
 };
 
-const deleteProtectedResource = async (accessToken, url) => {
+const deleteProtectedResource = async (accessToken:any, url:any) => {
   const config = {
     url: url || `${apiServerUrl}/api/messages/protected`,
     method: 'DELETE',
@@ -93,7 +93,7 @@ const deleteProtectedResource = async (accessToken, url) => {
   };
 };
 
-const getAdminResource = async (accessToken) => {
+const getAdminResource = async (accessToken:any) => {
   const config = {
     url: `${apiServerUrl}/api/messages/admin`,
     method: 'GET',

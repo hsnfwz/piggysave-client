@@ -1,4 +1,4 @@
-const callExternalApi = async (options) => {
+const callExternalApi = async (options: any) => {
   try {
     const response = await fetch(options.url, options);
     const { data } = await response.json();
@@ -7,7 +7,7 @@ const callExternalApi = async (options) => {
       data,
       error: null,
     };
-  } catch (error) {
+  } catch (error: any) {
     return {
       data: null,
       error: {

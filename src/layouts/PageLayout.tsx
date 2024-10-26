@@ -1,7 +1,7 @@
 import NavBar from '../components/NavBar';
 import NavBarMobile from '../components/NavBarMobile';
 
-function PageLayout({ children }) {
+function PageLayout({ children }: any) {
   return (
     <div className="w-full flex relative top-0 left-0">
       <NavBar />

@@ -13,12 +13,12 @@ import { useEffect, useState } from 'react';
 
 import { getChartYMax } from '../services/helpers';
 
-function CustomLineChart({ data, syncId, lineColor }) {
+function CustomLineChart({ data, syncId, lineColor }: any) {
   const [yMax, setYMax] = useState('auto');
 
   useEffect(() => {
     if (data.length > 0) {
-      let max = getChartYMax(data);
+      let max: any = getChartYMax(data);
       setYMax(max);
     }
   }, [data]);
@@ -40,7 +40,7 @@ function CustomLineChart({ data, syncId, lineColor }) {
   //   );
   // }
 
-  function renderTooltip(props) {
+  function renderTooltip(props: any) {
     const { active, payload, label } = props;
 
     // console.log(active, payload, label);

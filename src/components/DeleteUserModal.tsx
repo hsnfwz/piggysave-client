@@ -2,7 +2,7 @@ function DeleteUserModal({
   handleDeleteUser,
   handleCancel,
   showDeleteUserModal,
-}) {
+}: any) {
   if (!showDeleteUserModal) {
     return <></>;
   }

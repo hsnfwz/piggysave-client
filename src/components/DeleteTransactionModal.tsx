@@ -3,7 +3,7 @@ function DeleteTransactionModal({
   handleDeleteTransaction,
   handleCancel,
   showDeleteTransactionModal,
-}) {
+}: any) {
   if (!showDeleteTransactionModal) {
     return <></>;
   }

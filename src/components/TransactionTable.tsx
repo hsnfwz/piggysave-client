@@ -8,7 +8,7 @@ function TransactionTable({
   setAmount,
   setShowAddEditTransactionModal,
   setShowDeleteTransactionModal,
-}) {
+}: any) {
   return (
     <table className="w-full block overflow-x-scroll">
       <thead>
@@ -21,7 +21,7 @@ function TransactionTable({
         </tr>
       </thead>
       <tbody>
-        {transactions.map((transaction, index) => (
+        {transactions.map((transaction: any, index: number) => (
           <tr key={index} className="border-b border-b-slate-700">
             <td className="p-4 text-left w-1/4">{transaction.name}</td>
             <td className="p-4 text-left w-1/4">

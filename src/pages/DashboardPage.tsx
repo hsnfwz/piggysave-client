@@ -5,19 +5,19 @@ import {
   postProtectedResource,
   putProtectedResource,
   deleteProtectedResource,
-} from '../services/message.service.js';
+} from '../services/message.service';
 import {
   formatDateTimeYear,
   formatDateTimeMonth,
   formatDateTimeDay,
 } from '../services/helpers';
 import PageLayout from '../layouts/PageLayout';
-import TransactionTable from '../components/TransactionTable.js';
-import AddEditTransactionModal from '../components/AddEditTransactionModal.js';
-import DeleteTransactionModal from '../components/DeleteTransactionModal.js';
-import CustomBarChart from '../components/CustomBarChart.js';
-import CustomLineChart from '../components/CustomLineChart.js';
-import ComponentLoader from '../components/ComponentLoader.js';
+import TransactionTable from '../components/TransactionTable';
+import AddEditTransactionModal from '../components/AddEditTransactionModal';
+import DeleteTransactionModal from '../components/DeleteTransactionModal';
+import CustomBarChart from '../components/CustomBarChart';
+import CustomLineChart from '../components/CustomLineChart';
+import ComponentLoader from '../components/ComponentLoader';
 
 function DashboardPage() {
   const [transactions, setTransactions] = useState([]);
@@ -165,7 +165,7 @@ function DashboardPage() {
       // EXPENSE
       if (_transactionsByTotalAmountPerYearExpense.data) {
         const chartData =
-          _transactionsByTotalAmountPerYearExpense.data.rows.map((row) => {
+          _transactionsByTotalAmountPerYearExpense.data.rows.map((row: any) => {
             return {
               time: formatDateTimeYear(row.year),
               amount: row.total_amount,
@@ -182,7 +182,7 @@ function DashboardPage() {
 
       if (_transactionsByTotalAmountPerMonthExpense.data) {
         const chartData =
-          _transactionsByTotalAmountPerMonthExpense.data.rows.map((row) => {
+          _transactionsByTotalAmountPerMonthExpense.data.rows.map((row: any) => {
             return {
               time: formatDateTimeMonth(row.month),
               amount: row.total_amount,
@@ -199,7 +199,7 @@ function DashboardPage() {
 
       if (_transactionsByTotalAmountPerDayExpense.data) {
         const chartData = _transactionsByTotalAmountPerDayExpense.data.rows.map(
-          (row) => {
+          (row: any) => {
             return {
               time: formatDateTimeDay(row.day),
               amount: row.total_amount,
@@ -218,7 +218,7 @@ function DashboardPage() {
       // INCOME
       if (_transactionsByTotalAmountPerYearIncome.data) {
         const chartData = _transactionsByTotalAmountPerYearIncome.data.rows.map(
-          (row) => {
+          (row: any) => {
             return {
               time: formatDateTimeYear(row.year),
               amount: row.total_amount,
@@ -236,7 +236,7 @@ function DashboardPage() {
 
       if (_transactionsByTotalAmountPerMonthIncome.data) {
         const chartData =
-          _transactionsByTotalAmountPerMonthIncome.data.rows.map((row) => {
+          _transactionsByTotalAmountPerMonthIncome.data.rows.map((row: any) => {
             return {
               time: formatDateTimeMonth(row.month),
               amount: row.total_amount,
@@ -253,7 +253,7 @@ function DashboardPage() {
 
       if (_transactionsByTotalAmountPerDayIncome.data) {
         const chartData = _transactionsByTotalAmountPerDayIncome.data.rows.map(
-          (row) => {
+          (row: any) => {
             return {
               time: formatDateTimeDay(row.day),
               amount: row.total_amount,
@@ -309,7 +309,7 @@ function DashboardPage() {
     // EXPENSE
     if (_transactionsByTotalAmountPerYearExpense.data) {
       const chartData = _transactionsByTotalAmountPerYearExpense.data.rows.map(
-        (row) => {
+        (row: any) => {
           return {
             time: formatDateTimeYear(row.year),
             amount: row.total_amount,
@@ -326,7 +326,7 @@ function DashboardPage() {
 
     if (_transactionsByTotalAmountPerMonthExpense.data) {
       const chartData = _transactionsByTotalAmountPerMonthExpense.data.rows.map(
-        (row) => {
+        (row: any) => {
           return {
             time: formatDateTimeMonth(row.month),
             amount: row.total_amount,
@@ -343,7 +343,7 @@ function DashboardPage() {
 
     if (_transactionsByTotalAmountPerDayExpense.data) {
       const chartData = _transactionsByTotalAmountPerDayExpense.data.rows.map(
-        (row) => {
+        (row: any) => {
           return {
             time: formatDateTimeDay(row.day),
             amount: row.total_amount,
@@ -391,7 +391,7 @@ function DashboardPage() {
     // INCOME
     if (_transactionsByTotalAmountPerYearIncome.data) {
       const chartData = _transactionsByTotalAmountPerYearIncome.data.rows.map(
-        (row) => {
+        (row: any) => {
           return {
             time: formatDateTimeYear(row.year),
             amount: row.total_amount,
@@ -408,7 +408,7 @@ function DashboardPage() {
 
     if (_transactionsByTotalAmountPerMonthIncome.data) {
       const chartData = _transactionsByTotalAmountPerMonthIncome.data.rows.map(
-        (row) => {
+        (row: any) => {
           return {
             time: formatDateTimeMonth(row.month),
             amount: row.total_amount,
@@ -425,7 +425,7 @@ function DashboardPage() {
 
     if (_transactionsByTotalAmountPerDayIncome.data) {
       const chartData = _transactionsByTotalAmountPerDayIncome.data.rows.map(
-        (row) => {
+        (row: any) => {
           return {
             time: formatDateTimeDay(row.day),
             amount: row.total_amount,
@@ -451,7 +451,7 @@ function DashboardPage() {
 
     if (_transactionsByTotalAmountPerMonthExpense.data) {
       const chartData = _transactionsByTotalAmountPerMonthExpense.data.rows.map(
-        (row) => {
+        (row: any) => {
           return {
             time: formatDateTimeMonth(row.month),
             amount: row.total_amount,
@@ -478,7 +478,7 @@ function DashboardPage() {
 
     if (_transactionsByTotalAmountPerDayExpense.data) {
       const chartData = _transactionsByTotalAmountPerDayExpense.data.rows.map(
-        (row) => {
+        (row: any) => {
           return {
             time: formatDateTimeDay(row.day),
             amount: row.total_amount,
@@ -502,7 +502,7 @@ function DashboardPage() {
 
     if (_transactionsByTotalAmountPerMonthIncome.data) {
       const chartData = _transactionsByTotalAmountPerMonthIncome.data.rows.map(
-        (row) => {
+        (row: any) => {
           return {
             time: formatDateTimeMonth(row.month),
             amount: row.total_amount,
@@ -529,7 +529,7 @@ function DashboardPage() {
 
     if (_transactionsByTotalAmountPerDayIncome.data) {
       const chartData = _transactionsByTotalAmountPerDayIncome.data.rows.map(
-        (row) => {
+        (row: any) => {
           return {
             time: formatDateTimeDay(row.day),
             amount: row.total_amount,
@@ -544,13 +544,13 @@ function DashboardPage() {
     }
   };
 
-  const handleAddEditTransaction = async (transaction) => {
+  const handleAddEditTransaction = async (transaction: any) => {
     try {
       const accessToken = await getAccessTokenSilently();
 
-      const _transactions = [...transactions];
+      const _transactions: any = [...transactions];
 
-      let result;
+      let result: any;
 
       if (transaction) {
         result = await putProtectedResource(
@@ -565,7 +565,7 @@ function DashboardPage() {
 
         if (result.data) {
           const index = _transactions.findIndex(
-            (_transaction) =>
+            (_transaction: any) =>
               _transaction.transaction_id === transaction.transaction_id
           );
           if (index !== -1) _transactions[index] = result.data.rows[0];
@@ -610,7 +610,7 @@ function DashboardPage() {
     }
   };
 
-  const handleDeleteTransaction = async (transaction) => {
+  const handleDeleteTransaction = async (transaction: any) => {
     try {
       const accessToken = await getAccessTokenSilently();
       const result = await deleteProtectedResource(
@@ -622,7 +622,7 @@ function DashboardPage() {
 
       if (result.data) {
         const index = _transactions.findIndex(
-          (_transaction) =>
+          (_transaction: any) =>
             _transaction.transaction_id === transaction.transaction_id
         );
         _transactions.splice(index, 1);

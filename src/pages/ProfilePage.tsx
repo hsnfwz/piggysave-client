@@ -2,7 +2,7 @@ import { redirect } from 'react-router-dom';
 import { useAuth0 } from '@auth0/auth0-react';
 import { useState } from 'react';
 
-import { deleteProtectedResource } from '../services/message.service.js';
+// import { deleteProtectedResource } from '../services/message.service';
 
 import PageLayout from '../layouts/PageLayout';
 import DeleteUserModal from '../components/DeleteUserModal';
@@ -10,7 +10,7 @@ import DeleteUserModal from '../components/DeleteUserModal';
 function ProfilePage() {
   const [showDeleteUserModal, setShowDeleteUserModal] = useState(false);
 
-  const { user, getAccessTokenSilently } = useAuth0();
+  const { user/* , getAccessTokenSilently */ } = useAuth0();
 
   if (!user) {
     return null;
