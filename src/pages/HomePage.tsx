@@ -1,6 +1,5 @@
 import { useAuth0 } from '@auth0/auth0-react';
 
-import growingSvg from '../assets/growing.svg';
 import logoSvg from '../assets/logo.svg';
 
 function HomePage() {
